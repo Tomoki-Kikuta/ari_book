@@ -1,3 +1,4 @@
+
 def init(N, parent, rank):
     for i in range(N):
         parent.append(i)
@@ -28,12 +29,21 @@ def unite(parent, rank, a, b):
         return parent, rank
 
 def union_find():
-    N = int(input())
-    x, y = [int(i) for i in input().split()]
+    N, Q = [int(i) for i in input().split()]
     parent = []
     rank = []
     init(N, parent, rank)
-    unite(parent, rank, x, y)
+    for i in range(Q):
+        P, A, B = [int(i) for i in input().split()]
+        if P == 0:
+            unite(parent, rank, A, B)
+        else:
+            a = find(parent, A)
+            b = find(parent, B)
+            if a == b:
+                print("Yes")
+            else:
+                print("No")
 
 if __name__ == "__main__":
     union_find()
