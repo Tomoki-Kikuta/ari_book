@@ -24,12 +24,10 @@ def dijkstra(v, e, adj_list, s):
         candidate_d, now_v = heap.pop()
         if d[now_v] < candidate_d:
             continue
-        for i in range(len(adj_list[now_v])):
-            to = adj_list[now_v][i].to
-            cost = adj_list[now_v][i].cost
-            if d[to] > d[now_v] + cost:
-                d[to] = d[now_v] + cost
-                heapq.heappush(heap,(d[to], to))
+        for v in adj_list[now_v]:
+            if d[v.to] > d[now_v] + v.cost:
+                d[v.to] = d[now_v] + v.cost
+                heapq.heappush(heap,(d[v.to], v.to))
     
     return d
 
