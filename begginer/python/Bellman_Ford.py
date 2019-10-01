@@ -15,12 +15,9 @@ def cal_path(v, e, edge):
     update = True
     while update:
         update = False
-        for i in range(e):
-            fro = edge[i].fro
-            to = edge[i].to
-            cost = edge[i].cost
-            if d[fro] != INF and d[to] > d[fro] + cost:
-                d[to] = d[fro] + cost
+        for now_edge in edge:
+            if d[now_edge.fro] != INF and d[now_edge.to] > d[now_edge.fro] + now_edge.cost:
+                d[now_edge.to] = d[now_edge.fro] + now_edge.cost
                 update = True
     return d
 
