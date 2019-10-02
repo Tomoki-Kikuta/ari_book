@@ -10,7 +10,12 @@ def main():
     for k in range(v):
         for i in range(v):
             for j in range(v):
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j])    
- 
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j])   
+
+    for i in range(v):
+        for j in range(v):
+            if d[i][j] != INF:
+                print("{} {} {}".format(i,j,d[i][j]))
+                
 if __name__ == "__main__":
     main()
