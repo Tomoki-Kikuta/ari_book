@@ -14,8 +14,10 @@ def main():
 
     for i in range(v):
         for j in range(v):
+            if i == j:
+                continue
             if d[i][j] != INF:
                 print("{} {} {}".format(i,j,d[i][j]))
-                
+
 if __name__ == "__main__":
     main()
