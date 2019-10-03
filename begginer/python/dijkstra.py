@@ -15,21 +15,22 @@ class Edge():
 def dijkstra(v, e, adj_list, s):
     heap = []
     d = []
+    path = []
     for i in range(v):
         d.append(INF)
     d[0] = 0
-
     heapq.heappush(heap, (0, s))
     while len(heap) != 0:
-        candidate_d, now_v = heap.pop()
+        candidate_d, now_v = heapq.heappop(heap)
         if d[now_v] < candidate_d:
             continue
+        path.append(now_v)
+        #経路を保存しておく
         for v in adj_list[now_v]:
             if d[v.to] > d[now_v] + v.cost:
                 d[v.to] = d[now_v] + v.cost
                 heapq.heappush(heap,(d[v.to], v.to))
-    
-    return d
+    return d, path
 
 def main():
     v, e = map(int, input().split())
@@ -39,9 +40,10 @@ def main():
         adj_list[a[0]].append(Edge(a[1], a[2]))
         adj_list[a[1]].append(Edge(a[0], a[2]))
         
-    d = dijkstra(v, e, adj_list, 0)
+    d, path = dijkstra(v, e, adj_list, 0)
+
     for i in range(v):
-        print(d[i])
+        print("{} {}".format(path[i], d[path[i]]))
 
 if __name__ == "__main__":
     main()
