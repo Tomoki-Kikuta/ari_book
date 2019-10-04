@@ -43,8 +43,8 @@ def main():
         
     d, pre = dijkstra(v, e, adj_list, 0)
 
-    for i in range(v):
-        print("{} {}".format(path[i], d[path[i]]))
+    print(d)
+
 
 if __name__ == "__main__":
     main()
