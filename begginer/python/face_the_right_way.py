@@ -29,7 +29,7 @@ def main():
     for k in range(2, N+1):
         total = 0  # reverseの和
         operation = 0  # 何回反転させたか
-        reverse = [0 for i in range(N)]  # 反転させたかどうか
+        reverse = [0] * N  # 反転させたかどうか
         for now in range(N - k + 1):
             if now - k >= 0:
                 # now - k の区間が存在する
