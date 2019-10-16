@@ -8,9 +8,14 @@ def is_prime(N):
         i += 1
     return True
 
+
 def main():
     N = int(input())
-    is_prime(N)
+    if is_prime(N):
+        print("素数である")
+    else:
+        print("素数でない")
+
 
 if __name__ == "__main__":
     main()
