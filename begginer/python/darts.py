@@ -1,3 +1,6 @@
+"""二つの配列の和を計算するとき、重複したものを配列に入れてしまうと間に合わなかった"""
+
+
 def input_score(N):
     score = []  # 的の配点をいれる配列、投げないときの点も入れておく
     score.append(0)
@@ -29,9 +32,14 @@ def cal_four_sum_score(two_score, M):
 
 def cal_two_sum_score(score):
     two_score = []  # 二回投げた時に取りうる範囲を入れる配列
+    contain_sum = {}  # 二回投げたときにその値はすでに存在するか判断する配列
     for i in range(len(score)):
         for j in range(len(score)):
-            two_score.append(score[i] + score[j])
+            now_score = score[i] + score[j]
+            if not contain_sum.get(now_score):
+                contain_sum[now_score] = True
+                two_score.append(now_score)
+
     two_score.sort()  # 尺取り法を用いるためsortしておく
     return two_score
 
