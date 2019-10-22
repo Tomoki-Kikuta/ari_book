@@ -1,4 +1,6 @@
+"""k以下の最小のインデックスを返す"""
 import math
+
 
 def main():
     size = int(input())
@@ -16,6 +18,7 @@ def main():
             #解である可能性はない,
         
     print(right)
+
 
 if __name__ == "__main__":
     main()
