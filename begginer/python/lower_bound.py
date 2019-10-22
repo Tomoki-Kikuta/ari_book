@@ -1,5 +1,4 @@
 """k以下の最小のインデックスを返す"""
-import math
 
 
 def main():
@@ -12,11 +11,11 @@ def main():
         mid = int((left + right) / 2)
         if array[mid] >= k:
             right = mid
-            #kと等しい場合,解である可能性がある
+            # kと等しい場合,解である可能性がある
         else:
             left = mid + 1
-            #解である可能性はない,
-        
+            # 解である可能性はない
+
     print(right)
 
 
