@@ -52,10 +52,10 @@ def main():
     adj_list, dp = make_adj_list(vertex, edge)  # 初期化と入力
     # d = floyd_warshall(adj_list)  # それぞれの頂点からの最小を求める
     d = adj_list
-    for k in range(vertex):
-        for i in range(vertex):
-            for j in range(vertex):
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+    # for k in range(vertex):
+    #     for i in range(vertex):
+    #         for j in range(vertex):
+    #             d[i][j] = min(d[i][j], d[i][k] + d[k][j])
     # print(d)
     # 最短距離は頂点のどこからはじめても変わらないので0からスタートとする
     min_cost = cal_min_cost(dp, vertex, edge, d, 0, 0)  # 計算
