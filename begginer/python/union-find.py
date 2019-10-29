@@ -1,4 +1,3 @@
-
 def init(N, parent, rank):
     for i in range(N):
         parent.append(i)
