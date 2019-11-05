@@ -35,11 +35,8 @@ def cal_ans(from_0_to_half_combination, from_half_to_N_combination, W):
     for left in range(len(from_0_to_half_combination)):
         now_weight = from_0_to_half_combination[left][0]
         now_value = from_0_to_half_combination[left][1]
-        while now_weight + from_half_to_N_combination[right][0] > W:
+        while now_weight + from_half_to_N_combination[right][0] > W and right != 0:
             right -= 1
-            if right < 0:
-                right = 0
-                break
         if now_weight + from_half_to_N_combination[right][0] <= W:
             ans = max(ans, now_value + from_half_to_N_combination[right][1])
 
@@ -49,7 +46,7 @@ def cal_ans(from_0_to_half_combination, from_half_to_N_combination, W):
     #     now_value = from_0_to_half_combination[now][1]
     #     count = 0
     #     left = 0
-    #     right = len(from_0_to_half_combination) - 1
+    #     right = len(from_half_to_N_combination) - 1
     #     while count < 45:
     #         mid = (left + right) // 2
     #         if now_weight + from_half_to_N_combination[mid][0] > W:
