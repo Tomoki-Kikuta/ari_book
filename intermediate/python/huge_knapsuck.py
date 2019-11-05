@@ -1,17 +1,20 @@
 def make_combination(fro, to, value, weight, W):
-    """ビット演算が重い"""
+    """ビット演算が重いのでグレイコードを使った"""
     combination = []
-    for i in range(1 << (to - fro)):
-        w = 0
-        v = 0
-        for j in range(to - fro):
-            if i >> j & 1:
-                w += weight[j + fro]
-                v += value[j + fro]
-                if w > W:
-                    break
-        if w > W:
-            continue
+    w = 0
+    v = 0
+    combination.append([w, v])
+    for i in range(1, 1 << (to - fro)):
+        code = i ^ (i >> 1)
+        bitpos = 0
+        while not (1 << bitpos & i):
+            bitpos += 1
+        if (1 << bitpos & code):
+            w += weight[bitpos + fro]
+            v += value[bitpos + fro]
+        else:
+            w -= weight[bitpos + fro]
+            v -= value[bitpos + fro]
         combination.append([w, v])
 
     # 必要のない組み合わせを弾く
