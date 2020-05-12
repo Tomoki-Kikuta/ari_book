@@ -14,7 +14,7 @@ def main():
                 dp[i][j] = dp[i - 1][j]
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i - 1]] + value[i - 1])
-    print(dp[n][W]) 
+    print(dp[n][W])
 
 
 if __name__ == "__main__":
