@@ -1,3 +1,6 @@
+import sys
+
+
 def mod_pow(x, n, mod):
     res = 1
     while n > 0:
@@ -25,13 +28,13 @@ def main():
     if is_prime(n):
         # nが素数であるとき
         print("No")
-        exit()
+        sys.exit()
 
     for x in range(2, n):
         res = mod_pow(x, n, n)
         if x != res % n:
             print("No")
-            exit()
+            sys.exit()
     print("Yes")
 
 
