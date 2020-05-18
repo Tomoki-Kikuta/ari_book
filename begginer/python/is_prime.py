@@ -17,5 +17,5 @@ def main():
         print("素数でない")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
