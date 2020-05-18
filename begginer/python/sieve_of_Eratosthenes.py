@@ -1,8 +1,8 @@
 def main():
     N = int(input())
     prime = []
-    is_prime = [True for i in range(N+1)]
-    is_prime[0] = is_prime[1] = False
+    is_prime = [True for i in range(N+1)]  # 全て素数であると初期化
+    is_prime[0] = is_prime[1] = False # 0,1は素数ではない
     for i in range(2, N+1):
         if is_prime[i]:
             # iは素数である
@@ -14,5 +14,5 @@ def main():
     print(prime)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
