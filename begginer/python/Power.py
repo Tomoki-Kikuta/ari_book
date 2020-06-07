@@ -1,5 +1,5 @@
 def cal_expo(m, n, MOD):
-    if m == 1:
+    if m == 1 or n == 0:
         return 1
     ans = 1
     while n != 1:
